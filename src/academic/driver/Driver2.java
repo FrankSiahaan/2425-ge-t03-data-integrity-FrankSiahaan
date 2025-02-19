@@ -96,7 +96,7 @@ public class Driver2 {
                     courseprinted = true;
                 }
 
-                if (!studentada && !courseada) {
+                if (studentada && courseada) {
                     enrol.add(new Enrollment(ids,nims,year,sems));                    
                 }
             }
@@ -111,7 +111,7 @@ public class Driver2 {
         }
 
         for (Enrollment k : enrol) {
-            System.out.println(k.toString());
+            System.out.println(k.toString()+"|None");
         }
 
         input.close();
