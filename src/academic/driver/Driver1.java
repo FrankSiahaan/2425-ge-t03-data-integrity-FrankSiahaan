@@ -40,6 +40,9 @@ public class Driver1 {
         String year;
         String sems;
 
+        boolean courseprinted = false;
+        boolean studentprinted = false;
+
         while (true) {
             temp = input.nextLine();
             if (temp.equals("---")) {
@@ -67,13 +70,37 @@ public class Driver1 {
                 nims = hasil[2];
                 year = hasil[3];
                 sems = hasil[4];
-                enrol.add(new Enrollment(ids,nims,year,sems));
+
+                boolean courseada = false;
+                boolean studentada = false;
+
+                for (Course courses : course) {
+                    if (ids.contains(courses.getid())) {
+                        courseada = true;
+                    }
+                }
+
+                for (Student students : student) {
+                    if (nims.contains(students.getnim())) {
+                        studentada = true;
+                    }
+                }
+
+                if (!studentada && !studentprinted) {
+                    System.out.println("invalid student|" + nims);
+                    studentprinted = true;
+                }
+
+                if(!courseada && !courseprinted) {
+                    System.out.println("invalid course|"+ ids);
+                    courseprinted = true;
+                }
+
+                if (!studentada && !courseada) {
+                    enrol.add(new Enrollment(ids,nims,year,sems));                    
+                }
             }
         }
-        // for (Course i : course) {
-        //     System.out.println(i.toString1());
-        //     input.close();
-        // }
 
         for (int i = course.size() - 1; i >= 0; i--) {
             System.out.println(course.get(i));
@@ -83,17 +110,9 @@ public class Driver1 {
             System.out.println(j.toString());
         }
 
-        // for (int j = student.size() - 1; j >= 0; j--) {
-        //     System.out.println(student.get(j));
-        // }
-
         for (Enrollment k : enrol) {
             System.out.println(k.toString());
         }
-
-        // for (int k = enrol.size(); k >= 0; k--) {
-        //     System.out.println(enrol.get(k));
-        // }
 
         input.close();
     }
