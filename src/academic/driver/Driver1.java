@@ -40,9 +40,6 @@ public class Driver1 {
         String year;
         String sems;
 
-        boolean courseprinted = false;
-        boolean studentprinted = false;
-
         while (true) {
             temp = input.nextLine();
             if (temp.equals("---")) {
@@ -70,35 +67,7 @@ public class Driver1 {
                 nims = hasil[2];
                 year = hasil[3];
                 sems = hasil[4];
-
-                boolean courseada = false;
-                boolean studentada = false;
-
-                for (Course courses : course) {
-                    if (ids.contains(courses.getid())) {
-                        courseada = true;
-                    }
-                }
-
-                for (Student students : student) {
-                    if (nims.contains(students.getnim())) {
-                        studentada = true;
-                    }
-                }
-
-                if (!studentada && !studentprinted) {
-                    System.out.println("invalid student|" + nims);
-                    studentprinted = true;
-                }
-
-                if(!courseada && !courseprinted) {
-                    System.out.println("invalid course|"+ ids);
-                    courseprinted = true;
-                }
-
-                if (!studentada && !courseada) {
-                    enrol.add(new Enrollment(ids,nims,year,sems));                    
-                }
+                enrol.add(new Enrollment(ids,nims,year,sems));                    
             }
         }
 
