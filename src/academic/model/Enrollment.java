@@ -35,7 +35,7 @@ public class Enrollment {
 
     @Override
     public String toString() {
-        return this.ids + "|" + this.nims + "|" + this.year + "|" + this.sems + "|" + "None";
+        return this.ids + "|" + this.nims + "|" + this.year + "|" + this.sems;
     }
 
 
