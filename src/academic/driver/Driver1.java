@@ -80,7 +80,7 @@ public class Driver1 {
         }
 
         for (Enrollment k : enrol) {
-            System.out.println(k.toString()+"|none");
+            System.out.println(k.toString()+"|None");
         }
 
         input.close();
